@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprodutor de Música</title>
+</head>
+<body>
+    <h1>Reprodutor de Música</h1>
+    <input type="file" id="upload" accept="audio/*">
+    <div id="audio-container"></div>
+
+    <script>
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.src = URL.createObjectURL(file);
+            document.getElementById('audio-container').innerHTML = '';
+            document.getElementById('audio-container').appendChild(audio);
+        });
+    </script>
+</body>
+</html>
